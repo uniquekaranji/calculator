@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A clean, keyboard-friendly calculator with history and dark mode.">
+  <title>CalcPro | Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+
+  <main class="app">
+    <section class="calculator" aria-label="Calculator">
+
+      <header class="topbar">
+        <span class="brand">Calc<span>Pro</span></span>
+        <div class="topbar-actions">
+          <button id="history-btn" class="icon-btn" aria-label="Show history" aria-expanded="false" title="History">🕘</button>
+          <button id="theme-btn" class="icon-btn" aria-label="Switch theme" title="Switch theme">🌙</button>
+        </div>
+      </header>
+
+      <div id="display" class="display" aria-live="polite" aria-atomic="true">
+        <div id="expression" class="expression">&nbsp;</div>
+        <div id="result" class="result">0</div>
+      </div>
+
+      <div class="keys" id="keys">
+        <button class="key key-clear"  data-action="clear"   data-keys="Escape Delete" aria-label="All clear">AC</button>
+        <button class="key key-fn"     data-action="back"    data-keys="Backspace"     aria-label="Backspace">⌫</button>
+        <button class="key key-fn"     data-action="percent" data-keys="%"             aria-label="Percent">%</button>
+        <button class="key key-op"     data-action="op" data-value="/" data-keys="/"   aria-label="Divide">÷</button>
+
+        <button class="key" data-action="digit" data-value="7" data-keys="7">7</button>
+        <button class="key" data-action="digit" data-value="8" data-keys="8">8</button>
+        <button class="key" data-action="digit" data-value="9" data-keys="9">9</button>
+        <button class="key key-op" data-action="op" data-value="*" data-keys="* x X" aria-label="Multiply">×</button>
+
+        <button class="key" data-action="digit" data-value="4" data-keys="4">4</button>
+        <button class="key" data-action="digit" data-value="5" data-keys="5">5</button>
+        <button class="key" data-action="digit" data-value="6" data-keys="6">6</button>
+        <button class="key key-op" data-action="op" data-value="-" data-keys="-" aria-label="Subtract">−</button>
+
+        <button class="key" data-action="digit" data-value="1" data-keys="1">1</button>
+        <button class="key" data-action="digit" data-value="2" data-keys="2">2</button>
+        <button class="key" data-action="digit" data-value="3" data-keys="3">3</button>
+        <button class="key key-op" data-action="op" data-value="+" data-keys="+" aria-label="Add">+</button>
+
+        <button class="key key-fn" data-action="sign"    data-keys="" aria-label="Toggle positive or negative">±</button>
+        <button class="key" data-action="digit" data-value="0" data-keys="0">0</button>
+        <button class="key" data-action="decimal" data-keys=". ," aria-label="Decimal point">.</button>
+        <button class="key key-equals" data-action="equals" data-keys="Enter =" aria-label="Equals">=</button>
+      </div>
+
+      <aside id="history-panel" class="history" aria-label="Calculation history" aria-hidden="true">
+        <div class="history-head">
+          <h2>History</h2>
+          <div class="history-actions">
+            <button id="history-clear" class="text-btn">Clear</button>
+            <button id="history-close" class="icon-btn" aria-label="Close history">✕</button>
+          </div>
+        </div>
+        <ul id="history-list" class="history-list"></ul>
+        <p id="history-empty" class="history-empty">No calculations yet.</p>
+      </aside>
+
+    </section>
+    <p class="hint">Tip: you can also use your keyboard. Enter for =, Esc to clear.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
